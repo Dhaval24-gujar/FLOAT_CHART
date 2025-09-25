@@ -10,14 +10,14 @@ Usage:
 """
 
 import asyncio
+import logging
 import os
 import re
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Dict, Optional
+
 import asyncpg
-from mcp.server.fastmcp import FastMCP
 from dotenv import load_dotenv
-import json
-import logging
+from mcp.server.fastmcp import FastMCP
 
 # Load environment variables
 load_dotenv()
