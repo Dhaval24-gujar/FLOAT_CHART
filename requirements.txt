@@ -1,0 +1,6 @@
+langchain-google-genai
+langchain-mcp-adapters
+mcp
+langgraph
+asyncpg
+python-dotenv
