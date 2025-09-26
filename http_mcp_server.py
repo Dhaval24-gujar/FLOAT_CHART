@@ -16,11 +16,8 @@ import re
 from typing import Any, Dict, Optional
 
 import asyncpg
-from dotenv import load_dotenv
 from mcp.server.fastmcp import FastMCP
 
-# Load environment variables
-load_dotenv()
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
