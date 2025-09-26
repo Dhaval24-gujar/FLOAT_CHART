@@ -8,13 +8,21 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel , Field
 from typing import Optional, List, Literal
 import uvicorn
-
+from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
 load_dotenv()
 
 
 app = FastAPI(title="LangChain MCP Chat API", version="1.0.0")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all methods (GET, POST, PUT, DELETE, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
 
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.5-flash",
@@ -57,10 +65,8 @@ async def chat(query):
     client = MultiServerMCPClient(
         {
             "floatchat-argo": {
-                "command": "python",
-                "args": ["floatchat_fastmcp_server.py"],
-                "cwd": ".",
-                "transport": "stdio",
+                 "transport": "streamable_http",  # HTTP-based remote server
+                "url": "http://127.0.0.1:8050/mcp",
             }
         }
     )
