@@ -16,15 +16,17 @@ import re
 from typing import Any, Dict, Optional
 
 import asyncpg
-from mcp.server.fastmcp import FastMCP
+from fastmcp import FastMCP
+from dotenv import load_dotenv
 
+load_dotenv()
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Create FastMCP instance
-app = FastMCP("FloatChat-Argo",
+mcp = FastMCP("FloatChat-Argo",
               port=8050,
     stateless_http=True)
 
