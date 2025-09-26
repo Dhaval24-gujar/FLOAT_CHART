@@ -27,7 +27,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Create FastMCP instance
-mcp = FastMCP("FloatChat-Argo",
+app = FastMCP("FloatChat-Argo",
               port=8050,
     stateless_http=True)
 
