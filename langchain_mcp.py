@@ -66,7 +66,7 @@ async def chat(query):
         {
             "floatchat-argo": {
                  "transport": "streamable_http",  # HTTP-based remote server
-                "url": "http://127.0.0.1:8050/mcp",
+                "url": "https://zestful-cyan-dormouse.fastmcp.app/mcp",
             }
         }
     )
